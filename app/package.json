@@ -1,20 +1,15 @@
 {
-  "name": "windchimes",
+  "name": "twitter-sentiment",
   "version": "1.0.0",
-  "description": "An Angular 2 art experiment",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "typings install",
+    "preinstall": "typings install",
     "build": "webpack -p --config webpack.prod.config.js",
     "start": "webpack-dev-server --inline --progress --colors --content-base dist/app --host 0.0.0.0",
     "typings": "typings"
   },
-  "keywords": [
-    "generativeart",
-    "angular"
-  ],
-  "author": "Tero Parviainen <tero@teropa.info>",
-  "license": "ISC",
+  "keywords": [],
   "devDependencies": {
     "autoprefixer": "6.3.6",
     "babel-loader": "6.2.4",
