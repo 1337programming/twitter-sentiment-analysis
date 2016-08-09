@@ -1,0 +1,50 @@
+.ring, .light {
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+    width: 600px;
+    height: 600px;
+    border-radius: 300px;
+    opacity: 0;
+    backface-visibility: hidden;
+    perspective:1000;
+    transform: translateZ(0);
+}
+
+.message {
+    /*line-height: 200px;*/
+    fint-size: 18px;
+    color: white;
+    text-align: center;
+}
+
+.ring {
+    border-width: 200px;
+    border-style: solid;
+}
+.ring.C4 { border-color: #FF3D7F; }
+.ring.G4 { border-color: #FF9E9D; }
+.ring.C5 { border-color: #DAD8A7; }
+.ring.D5 { border-color: #7FC7AF; }
+.ring.E5 { border-color: #3FB8AF; }
+
+.ring.zero { border-color: #2234ff; }
+.ring.one { border-color: #1762ff; }
+.ring.two { border-color: #137bff; }
+.ring.three { border-color: #18a3ff; }
+.ring.four { border-color: #28caff; }
+.ring.five { border-color: #c7ccff; }
+.ring.six { border-color: #ffb1ea; }
+.ring.seven { border-color: #ff858f; }
+.ring.eight{ border-color: #ff6a5b; }
+.ring.nine{ border-color: #ff1c4b; }
+.ring.ten { border-color: #ff1200; }
+
+.light {
+    background-image: radial-gradient(
+            circle farthest-side,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 0.1) 30%,
+            rgba(255, 255, 255, 0) 100%
+    );
+}
