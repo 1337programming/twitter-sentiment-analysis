@@ -23,6 +23,7 @@
 .ring {
     border-width: 50px;
     border-style: solid;
+    background-color: #111;
 }
 
 .ring.C4 {
@@ -46,106 +47,106 @@
 }
 
 .ring.neg-ten {
-    border-color: #000000;
+    border-color: #ff0000;
 
 }
 
 .ring.neg-nine {
-    border-color: #2a0100;
+    border-color: #ff0000;
 
 }
 
 .ring.neg-eight {
-    border-color: #7a0a05;
+    border-color: #ff0000;
 
 }
 
 .ring.neg-seven {
-    border-color: #a70a05;
+    border-color: #ff0000;
 
 }
 
 .ring.neg-six {
-    border-color: #ce1c1a;
+    border-color: #ff0000;
 }
 
 .ring.neg-five {
-    border-color: #f95e66;
+    border-color: #ff0000;
 
 }
 
 .ring.neg-four {
-    border-color: #ff9a93;
+    border-color: #ff2340;
 
 }
 
 .ring.neg-three {
-    border-color: #ffbcb5;
+    border-color: #ff505e;
 
 }
 
 .ring.neg-two {
-    border-color: #ffdcd2;
+    border-color: #ff858c;
 
 }
 
 .ring.neg-one {
-    border-color: #ffe7de;
+    border-color: #ffc7d3;
 
 }
 
 .ring.zero {
-    border-color: #fcfff6;
+    border-color: #fcffff;
 
 }
 
 .ring.one {
-    border-color: #ecffeb;
+    border-color: #c1ffd0;
 
 }
 
 .ring.two {
-    border-color: #cfffd4;
+    border-color: #9bff9f;
 
 }
 
 .ring.three {
-    border-color: #b4ffbd;
+    border-color: #6eff6a;
 
 }
 
 .ring.four {
-    border-color: #96ff9c;
+    border-color: #2dff2a;
 
 }
 
 .ring.five {
-    border-color: #7bff82;
+    border-color: #09b900;
 
 }
 
 .ring.six {
-    border-color: #5dff54;
+    border-color: #09b900;
 
 }
 
 .ring.seven {
-    border-color: #3cd237;
+    border-color: #09b900;
 
 }
 
 .ring.eight {
-    border-color: #21d319;
+    border-color: #09b900;
 
 }
 
 .ring.nine {
-    border-color: #10a001;
+    border-color: #09b900;
 
 }
 
 .ring.ten {
-    border-color: #0f6a01;
+    border-color: #09b900;
 
 }
 

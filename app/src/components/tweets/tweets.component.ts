@@ -13,8 +13,10 @@ let io = require('socket.io-client');
   selector: 'tweets',
   template: `
     <div class="muted-indicator" *ngIf="muted"></div>
+    <!--
     <div class="hint click-hint" *ngIf="!clicked && !isDone()">click anywhere</div>
     <div class="hint touch-hint" *ngIf="!clicked && !isDone()">touch anywhere</div>
+    -->
     <tweet *forAnyOrder="let tweet of tweets | async"
            [tweet]=tweet>
     </tweet>

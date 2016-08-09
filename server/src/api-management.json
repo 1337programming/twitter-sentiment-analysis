@@ -2,5 +2,6 @@
   "consumer_key": "H0EFh0Quxu47eIfs1W5RTLqEJ",
   "consumer_secret": "keNIqjzXU7RfNWFrhP5VcGbGebIBzCSP4ixAIgqJ0tBAbSFs1o",
   "access_token_key": "762881699172585473-Y3heG6jxcrhUxFGbdVggfXZNLsQFaXb",
-  "access_token_secret": "qTL2sNco5iPsT1eeFalZ7EZMW0rqKPo7w1ocWfB9IhP1Q"
+  "access_token_secret": "qTL2sNco5iPsT1eeFalZ7EZMW0rqKPo7w1ocWfB9IhP1Q",
+  "streaming_term": "Tmobile,t-mobile"
 }
