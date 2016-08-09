@@ -5,7 +5,7 @@ let sentiment = require('sentiment');
 let swearJar = require('swearjar');
 let API = require('./api-management.json');
 
-let streamingTerm = 'Clinton';
+let streamingTerm = 'Tmobile,t-mobile';
 
 export class TwitterStream {
   

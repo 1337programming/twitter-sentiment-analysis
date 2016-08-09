@@ -31,7 +31,7 @@ export class Tweets {
     sentiment,
     text,
     note: this.noteSampler(),
-    topic: 'Election',
+    topic: 'T-Mobile',
     state: 'chiming',
     muted: this.muted
   })).bufferTime(5000, 10);
