@@ -33,7 +33,7 @@ export class Tweets {
     sentiment,
     text,
     note: this.noteSampler(),
-    topic: 'T-Mobile',
+    topic: '',
     state: 'chiming',
     muted: this.muted
   })).bufferTime(5000, 10);
