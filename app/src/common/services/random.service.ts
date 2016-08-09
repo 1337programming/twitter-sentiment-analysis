@@ -1,14 +1,15 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import * as io from 'socket.io-client';
-import {SocketClient} from './socket-client.service';
+import {Remote} from './remote.service';
+
 
 import 'rxjs/add/observable/interval';
 
 @Injectable()
 export class Random {
   
-  constructor(private client:SocketClient) { }
+  constructor(private rmt:Remote) { }
   
   nextInt(min: number, max: number) {
     return min + Math.floor(Math.random() * (max - min));
@@ -162,7 +163,7 @@ export class Random {
   }
   
   remote() {
-    return this.client.chimes();
+    return this.rmt.tweets();
   }
   
   private sleep(ms) {

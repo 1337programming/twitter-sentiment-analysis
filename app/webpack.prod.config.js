@@ -1,8 +1,9 @@
 var autoprefixer = require('autoprefixer');
 var path = require('path');
 
+
 module.exports = {
-  entry: ['./src/polyfills.ts', './src/main.ts', 'webpack/hot/dev-server'],
+  entry: ['./src/polyfills.ts', './src/prod.ts', './src/main.ts'],
   resolve: {
     extensions: ['', '.ts', '.js']
   },
@@ -19,8 +20,12 @@ module.exports = {
   postcss: function() {
     return [autoprefixer];
   },
+  ts: {
+    configFileName: 'tsconfig.prod.json'
+  },
   output: {
     path: './dist/app',
     filename: 'bundle.js'
-  }
+  },
+  devtool: 'cheap-source-map'
 };

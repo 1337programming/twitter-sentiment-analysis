@@ -3,7 +3,7 @@ import {Injectable, Inject} from '@angular/core';
 @Injectable()
 export class Audio {
   
-  compressor: DynamicsCompressorNode;
+  compressor:DynamicsCompressorNode;
   
   constructor(@Inject('audioContext') private audioCtx) {
     this.compressor = audioCtx.createDynamicsCompressor();
@@ -42,7 +42,7 @@ export class Audio {
     var b0, b1, b2, b3, b4, b5, b6;
     b0 = b1 = b2 = b3 = b4 = b5 = b6 = 0.0;
     var node = this.audioCtx.createScriptProcessor(4096, 1, 1);
-    node.onaudioprocess = function (e) {
+    node.onaudioprocess = function(e) {
       var output = e.outputBuffer.getChannelData(0);
       for (var i = 0; i < 4096; i++) {
         var white = Math.random() * 2 - 1;
@@ -63,7 +63,7 @@ export class Audio {
   brownNoiseNode() {
     var lastOut = 0.0;
     var node = this.audioCtx.createScriptProcessor(4096, 1, 1);
-    node.onaudioprocess = function (e) {
+    node.onaudioprocess = function(e) {
       var output = e.outputBuffer.getChannelData(0);
       for (var i = 0; i < 4096; i++) {
         var white = Math.random() * 2 - 1;
@@ -85,7 +85,7 @@ export class Audio {
     node.connect(this.audioCtx.destination);
   }
   
-  stopNode(node) {
+  stopNode(node) {
     node.disconnect();
   }
   
