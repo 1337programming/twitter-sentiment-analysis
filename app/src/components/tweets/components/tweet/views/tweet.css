@@ -7,7 +7,7 @@
     border-radius: 300px;
     opacity: 0;
     backface-visibility: hidden;
-    perspective:1000;
+    perspective: 1000;
     transform: translateZ(0);
 }
 
@@ -24,23 +24,130 @@
     border-width: 50px;
     border-style: solid;
 }
-.ring.C4 { border-color: #FF3D7F; }
-.ring.G4 { border-color: #FF9E9D; }
-.ring.C5 { border-color: #DAD8A7; }
-.ring.D5 { border-color: #7FC7AF; }
-.ring.E5 { border-color: #3FB8AF; }
 
-.ring.zero { border-color: #2234ff; }
-.ring.one { border-color: #1762ff; }
-.ring.two { border-color: #137bff; }
-.ring.three { border-color: #18a3ff; }
-.ring.four { border-color: #28caff; }
-.ring.five { border-color: #c7ccff; }
-.ring.six { border-color: #ffb1ea; }
-.ring.seven { border-color: #ff858f; }
-.ring.eight{ border-color: #ff6a5b; }
-.ring.nine{ border-color: #ff1c4b; }
-.ring.ten { border-color: #ff1200; }
+.ring.C4 {
+    border-color: #FF3D7F;
+}
+
+.ring.G4 {
+    border-color: #FF9E9D;
+}
+
+.ring.C5 {
+    border-color: #DAD8A7;
+}
+
+.ring.D5 {
+    border-color: #7FC7AF;
+}
+
+.ring.E5 {
+    border-color: #3FB8AF;
+}
+
+.ring.neg-ten {
+    border-color: #000000;
+
+}
+
+.ring.neg-nine {
+    border-color: #2a0100;
+
+}
+
+.ring.neg-eight {
+    border-color: #7a0a05;
+
+}
+
+.ring.neg-seven {
+    border-color: #a70a05;
+
+}
+
+.ring.neg-six {
+    border-color: #ce1c1a;
+}
+
+.ring.neg-five {
+    border-color: #f95e66;
+
+}
+
+.ring.neg-four {
+    border-color: #ff9a93;
+
+}
+
+.ring.neg-three {
+    border-color: #ffbcb5;
+
+}
+
+.ring.neg-two {
+    border-color: #ffdcd2;
+
+}
+
+.ring.neg-one {
+    border-color: #ffe7de;
+
+}
+
+.ring.zero {
+    border-color: #fcfff6;
+
+}
+
+.ring.one {
+    border-color: #ecffeb;
+
+}
+
+.ring.two {
+    border-color: #cfffd4;
+
+}
+
+.ring.three {
+    border-color: #b4ffbd;
+
+}
+
+.ring.four {
+    border-color: #96ff9c;
+
+}
+
+.ring.five {
+    border-color: #7bff82;
+
+}
+
+.ring.six {
+    border-color: #5dff54;
+
+}
+
+.ring.seven {
+    border-color: #3cd237;
+
+}
+
+.ring.eight {
+    border-color: #21d319;
+
+}
+
+.ring.nine {
+    border-color: #10a001;
+
+}
+
+.ring.ten {
+    border-color: #0f6a01;
+
+}
 
 .light {
     background-image: radial-gradient(

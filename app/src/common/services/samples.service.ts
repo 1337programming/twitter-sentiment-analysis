@@ -52,4 +52,37 @@ export class Samples {
     return this.sampleCache.get(note);
   }
   
+  sentimentValidator(score) {
+    let sentiments = {
+      '-1': 'neg-one',
+      '-2': 'neg-two',
+      '-3': 'neg-three',
+      '-4': 'neg-four',
+      '-5': 'neg-five',
+      '-6': 'neg-six',
+      '-7': 'neg-seven',
+      '-8': 'neg-eight',
+      '-9': 'neg-nine',
+      '-10': 'neg-ten',
+      '0': 'zero',
+      '1': 'one',
+      '2': 'two',
+      '3': 'three',
+      '4': 'four',
+      '5': 'five',
+      '6': 'six',
+      '7': 'seven',
+      '8': 'eight',
+      '9': 'nine',
+      '10': 'ten'
+    };
+    if (sentiments[score.toString()]) {
+      return sentiments[score.toString()];
+    } else {
+      console.log(`${score} was not available on map!`);
+      return 'zero';
+    }
+    
+  }
+  
 }
