@@ -8,7 +8,7 @@
     "preinstall": "cd app/ && npm install",
     "install": "cd server/ && npm install",
     "client": "cd app/ && npm start",
-    "server": "cd server/ && npm server"
+    "server": "cd server/ && npm start"
   },
   "repository": {
     "type": "git",
