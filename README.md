@@ -16,4 +16,6 @@ On another terminal run:
 
 This will run the server
 
+## Updating Streaming Term
 
+`server/src/api-management.json` and change streaming term key
