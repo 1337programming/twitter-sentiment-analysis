@@ -4,7 +4,11 @@
   "description": "Twitter Sentiment Analysis",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "cd app/ && npm install",
+    "install": "cd server/ && npm install",
+    "client": "cd app/ && npm start",
+    "server": "cd server/ && npm start"
   },
   "repository": {
     "type": "git",

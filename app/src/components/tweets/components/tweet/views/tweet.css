@@ -1,0 +1,160 @@
+.ring, .light {
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+    width: 400px;
+    height: 400px;
+    border-radius: 300px;
+    opacity: 0;
+    backface-visibility: hidden;
+    perspective: 1000;
+    transform: translateZ(0);
+}
+
+.message {
+    /*line-height: 200px;*/
+    fint-size: 18px;
+    color: white;
+    text-align: center;
+    margin: 25px;
+    margin-top: 15px;
+}
+
+.ring {
+    border-width: 50px;
+    border-style: solid;
+    background-color: #111;
+}
+
+.ring.C4 {
+    border-color: #FF3D7F;
+}
+
+.ring.G4 {
+    border-color: #FF9E9D;
+}
+
+.ring.C5 {
+    border-color: #DAD8A7;
+}
+
+.ring.D5 {
+    border-color: #7FC7AF;
+}
+
+.ring.E5 {
+    border-color: #3FB8AF;
+}
+
+.ring.neg-ten {
+    border-color: #ff0000;
+
+}
+
+.ring.neg-nine {
+    border-color: #ff0000;
+
+}
+
+.ring.neg-eight {
+    border-color: #ff0000;
+
+}
+
+.ring.neg-seven {
+    border-color: #ff0000;
+
+}
+
+.ring.neg-six {
+    border-color: #ff0000;
+}
+
+.ring.neg-five {
+    border-color: #ff0000;
+
+}
+
+.ring.neg-four {
+    border-color: #ff2340;
+
+}
+
+.ring.neg-three {
+    border-color: #ff505e;
+
+}
+
+.ring.neg-two {
+    border-color: #ff858c;
+
+}
+
+.ring.neg-one {
+    border-color: #ffc7d3;
+
+}
+
+.ring.zero {
+    border-color: #fcffff;
+
+}
+
+.ring.one {
+    border-color: #c1ffd0;
+
+}
+
+.ring.two {
+    border-color: #9bff9f;
+
+}
+
+.ring.three {
+    border-color: #6eff6a;
+
+}
+
+.ring.four {
+    border-color: #2dff2a;
+
+}
+
+.ring.five {
+    border-color: #09b900;
+
+}
+
+.ring.six {
+    border-color: #09b900;
+
+}
+
+.ring.seven {
+    border-color: #09b900;
+
+}
+
+.ring.eight {
+    border-color: #09b900;
+
+}
+
+.ring.nine {
+    border-color: #09b900;
+
+}
+
+.ring.ten {
+    border-color: #09b900;
+
+}
+
+.light {
+    background-image: radial-gradient(
+            circle farthest-side,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 0.1) 30%,
+            rgba(255, 255, 255, 0) 100%
+    );
+}
