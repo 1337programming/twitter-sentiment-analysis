@@ -1,4 +1,4 @@
-# twitter-sentiment-analysis
+# Twitter Sentiment Analysis
 Twitter Sentiment Analysis
 
 The Twitter Sentiment Analysis project is designed to visualize live tweets coming in around a topic or series of topics and capture tweet/sentiment data in order to extract meaning from tweet activity.
