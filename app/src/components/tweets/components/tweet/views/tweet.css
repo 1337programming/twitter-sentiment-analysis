@@ -13,11 +13,11 @@
 
 .message {
     /*line-height: 200px;*/
-    fint-size: 18px;
+    font-size: 1.25em;
     color: white;
     text-align: center;
-    margin: 25px;
-    margin-top: 15px;
+    margin: 10px;
+    margin-top: 5px;
 }
 
 .ring {
@@ -92,6 +92,7 @@
 
 .ring.neg-one {
     border-color: #ffc7d3;
+    border-color: rgba(0, 255, 25,1);
 
 }
 

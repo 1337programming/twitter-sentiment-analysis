@@ -25,15 +25,15 @@ let io = require('socket.io-client');
   directives: [Chime, ForAnyOrder]
 })
 export class Tweets {
-  clicks = new Subject<{x: number, y: number, sentiment: string, text: string}>();
+  clicks = new Subject<{x: number, y: number, sentiment: any, text: string, topic: string}>();
   noteSampler = this.random.sampler(this.notes);
-  tweets = this.clicks.map(({x, y, sentiment, text}) => ({
+  tweets = this.clicks.map(({x, y, sentiment, text, topic}) => ({
     x,
     y,
     sentiment,
     text,
+    topic,
     note: this.noteSampler(),
-    topic: 'T-Mobile',
     state: 'chiming',
     muted: this.muted
   })).bufferTime(5000, 10);
@@ -55,17 +55,20 @@ export class Tweets {
     });
     this.socket = io.connect('http://localhost:3000');
     this.socket.on('EmitTweet', (tweet) => {
+      console.log(tweet);
       this.renderTweet(tweet);
     });
   }
   
   renderTweet(tweet) {
     let sentiment = this.samples.sentimentValidator(tweet.sentiment.score);
+    console.log(sentiment);
     this.clicks.next({
       x: Random.getRandomIntInclusive(window.innerWidth * 0.2, (window.innerWidth - (window.innerWidth * 0.2))),
       y: Random.getRandomIntInclusive(window.innerWidth * 0.2, (window.innerHeight - (window.innerHeight * 0.2))),
       sentiment: sentiment,
-      text: tweet.text
+      text: tweet.text,
+      topic: tweet.user.screen_name
     });
   }
   
@@ -80,7 +83,13 @@ export class Tweets {
     }
     this.clicked = true;
     if (!this.isDone()) {
-      this.clicks.next({x: event.clientX, y: event.clientY, sentiment: this.random.randomSentiment(), text: this.random.randomStatement()});
+      this.clicks.next({
+        x: event.clientX,
+        y: event.clientY,
+        sentiment: this.random.randomSentiment(),
+        text: this.random.randomStatement(),
+        topic: 'Default'
+      });
     }
   }
   

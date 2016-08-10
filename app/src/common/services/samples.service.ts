@@ -53,6 +53,37 @@ export class Samples {
   }
   
   sentimentValidator(score) {
+    enum Color {
+      Red,
+      Blue,
+      Green,
+      Alpha
+    }
+    
+    let red:Color = Color.Red;
+    let blue:Color = Color.Blue;
+    let green:Color = Color.Green;
+    let alpha:Color = Color.Alpha;
+  
+  
+    let cap:number = 5;
+    let multiplier:number = 255/cap;
+    
+    if (score > 0) {
+      green = 255;
+      red = 255 - (score * multiplier);
+      blue = 255 - (score * multiplier);
+    } else {
+      red = 255;
+      green = 255 - (Math.abs(score) * multiplier);
+      blue = 255 - (Math.abs(score) * multiplier);
+    }
+    
+    alpha = 1;
+    
+    return {red: Math.round(red), green: Math.round(green), blue: Math.round(blue), alpha: alpha};
+    
+    /*
     let sentiments = {
       '-1': 'neg-one',
       '-2': 'neg-two',
@@ -82,6 +113,7 @@ export class Samples {
       console.log(`${score} was not available on map!`);
       return 'zero';
     }
+    */
     
   }
   

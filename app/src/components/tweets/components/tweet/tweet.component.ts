@@ -5,10 +5,11 @@ import {Audio} from '../../../../common/services/audio.service';
 @Component({
   selector: 'tweet',
   template: `
-    <div class="ring {{tweet.sentiment}}" @expand="any"
+    <div class="ring" @expand="any"
+         [style.border-color]="getColor()"
          [style.left.px]="tweet.x - 300"
          [style.top.px]="tweet.y - 300">
-         <div class="message"><h3>{{tweet.topic}}</h3><br><br>{{tweet.text}}</div>
+         <div class="message"><h4>@{{tweet.topic}}</h4>{{tweet.text}}</div>
     </div>
     <div class="light" @flash="any"
          [style.left.px]="tweet.x - 300"
@@ -42,7 +43,7 @@ import {Audio} from '../../../../common/services/audio.service';
   ]
 })
 export class Chime implements OnInit, OnDestroy {
-  @Input() tweet:{x: number, y: number, note: string, text: string, sentiment: string, topic: string};
+  @Input() tweet:{x: number, y: number, note: string, text: string, sentiment: any, topic: string};
   stopAudio:Function;
   
   constructor(private samples:Samples,
@@ -60,6 +61,10 @@ export class Chime implements OnInit, OnDestroy {
     if (this.stopAudio) {
       this.stopAudio();
     }
+  }
+  
+  getColor() {
+    return `rgba(${this.tweet.sentiment.red}, ${this.tweet.sentiment.green}, ${this.tweet.sentiment.blue}, ${this.tweet.sentiment.alpha})`
   }
   
 }
