@@ -5,8 +5,6 @@ The Twitter Sentiment Analysis project is designed to visualize live tweets comi
 
 The project consists of three components:
 
-
-
 ## Setup
 `npm install`
 
