@@ -2,7 +2,6 @@ import {Component, Inject, HostListener, EventEmitter} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import {Observable} from 'rxjs/Observable';
 import {Random} from '../../common/services/random.service';
-import {Remote} from '../../common/services/remote.service';
 import {Samples} from '../../common/services/samples.service';
 import {Chime} from './components/tweet/tweet.component';
 import {ForAnyOrder} from '../../common/directives/forAnyOrder.directive';
@@ -45,24 +44,17 @@ export class Tweets {
   private socket: any;
   
   constructor(private random: Random,
-              private remote: Remote,
               private samples: Samples,
               @Inject('notes') private notes,
               @Inject('audioContext') private audioCtx) {
-    remote.controlEvents().subscribe(state => {
-      this.state = state.state;
-      this.muted = state.muted;
-    });
     this.socket = io.connect('http://localhost:3000');
     this.socket.on('EmitTweet', (tweet) => {
-      console.log(tweet);
       this.renderTweet(tweet);
     });
   }
   
   renderTweet(tweet) {
     let sentiment = this.samples.sentimentValidator(tweet.sentiment.score);
-    console.log(sentiment);
     this.clicks.next({
       x: Random.getRandomIntInclusive(window.innerWidth * 0.2, (window.innerWidth - (window.innerWidth * 0.2))),
       y: Random.getRandomIntInclusive(window.innerWidth * 0.2, (window.innerHeight - (window.innerHeight * 0.2))),
