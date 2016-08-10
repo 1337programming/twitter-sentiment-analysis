@@ -52,15 +52,15 @@ export class Chime implements OnInit, OnDestroy {
   }
   
   ngOnInit() {
-    this.samples.getSample(this.tweet.note).then(sample => {
-      this.stopAudio = this.audio.play(sample, (this.tweet.x / this.size.width) * 2 - 1);
-    });
+    // this.samples.getSample(this.tweet.note).then(sample => {
+    //   this.stopAudio = this.audio.play(sample, (this.tweet.x / this.size.width) * 2 - 1);
+    // });
   }
   
   ngOnDestroy() {
-    if (this.stopAudio) {
-      this.stopAudio();
-    }
+    // if (this.stopAudio) {
+    //   this.stopAudio();
+    // }
   }
   
   getColor() {
