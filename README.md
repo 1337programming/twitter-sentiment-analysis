@@ -14,7 +14,7 @@ The project consists of three components:
 On one terminal run:
 `npm run client`
 
-This will open the app
+This will run and open the app
 
 On another terminal run:
 `npm run server`
