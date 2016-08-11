@@ -19,6 +19,9 @@ let io = require('socket.io-client');
     <tweet *forAnyOrder="let tweet of tweets | async"
            [tweet]=tweet>
     </tweet>
+
+    <div id="leftside" style="width:50%; height: 100%; background-color: #e20074; float:left;"></div>
+    <div id="rightside" style="width:50%; height: 100%; background-color: #ef6f00; float:right;"></div>
   `,
   styles: [require('./views/tweets.css').toString()],
   directives: [Chime, ForAnyOrder]
@@ -40,6 +43,8 @@ export class Tweets {
   clicked = false;
   state: string;
   muted: boolean;
+
+  edgeBufferPct = 0.3;
   
   private socket: any;
   
@@ -52,12 +57,34 @@ export class Tweets {
       this.renderTweet(tweet);
     });
   }
+
+  getXCoordinate(numColumns: number, selectedColumn: number) {
+    let totalWidth = 1 / numColumns * window.innerWidth;
+    let startCoord = (selectedColumn - 1) * totalWidth + (totalWidth * this.edgeBufferPct); 
+    let endCoord = startCoord + totalWidth - (totalWidth * this.edgeBufferPct); 
+    return Random.getRandomIntInclusive(startCoord, endCoord);
+  }
+
+  getYCoordinate(numColumns: number, selectedRow: number) {
+    let totalHeight = 1 / numColumns * window.innerHeight;
+    let startCoord = (selectedRow - 1) * totalHeight + (totalHeight * this.edgeBufferPct); 
+    let endCoord = startCoord + totalHeight - (totalHeight * this.edgeBufferPct); 
+    return Random.getRandomIntInclusive(startCoord, endCoord);
+  }
   
   renderTweet(tweet) {
     let sentiment = this.samples.sentimentValidator(tweet.sentiment.score);
+
+    let numColumns = 2;
+    let selectedColumn = 1;
+    if (tweet.text.toUpperCase().indexOf('ATT') >= 0 || tweet.text.toUpperCase().indexOf('AT&T') >= 0) {
+      selectedColumn = 2;
+    }
+
     this.clicks.next({
-      x: Random.getRandomIntInclusive(window.innerWidth * 0.2, (window.innerWidth - (window.innerWidth * 0.2))),
-      y: Random.getRandomIntInclusive(window.innerWidth * 0.2, (window.innerHeight - (window.innerHeight * 0.2))),
+      // x: Random.getRandomIntInclusive(window.innerWidth * 0.05, (window.innerWidth * 0.45)),
+      x: this.getXCoordinate(numColumns, selectedColumn),
+      y: this.getYCoordinate(1,1),
       sentiment: sentiment,
       text: tweet.text,
       topic: tweet.user.screen_name

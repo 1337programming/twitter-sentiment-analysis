@@ -12,15 +12,18 @@ let esClient = new elasticsearch.Client({
 });
 
 function loadIntoEs(obj) {
-  esClient.create({
-    index: 'twitter3',
-    type: 'tweet',
-    body: obj
-  }, function (error, response) {
-    if (error) {
-      console.log('elasticsearch error: ' + error);
-    }
-  });
+  if (esClient) {
+      esClient.create({
+      index: 'twitter3',
+      type: 'tweet',
+      body: obj
+    }, function (error, response) {
+      if (error) {
+        console.log('elasticsearch error: ' + error);
+        esClient = null;
+      }
+    });
+  }
 }
 
   export class TwitterStream {

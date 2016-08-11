@@ -13,7 +13,7 @@ import {Audio} from './common/services/audio.service';
     <div (window:resize)="onWindowResize()">
       <router-outlet [hidden]="isLoading()"></router-outlet>
       <loading-indicator *ngIf="isLoading()" [progress]="getLoadProgress()"></loading-indicator>
-    </div>
+    </div>    
   `,
   styles: [''],
   directives: [ROUTER_DIRECTIVES, LoadingIndicator],
