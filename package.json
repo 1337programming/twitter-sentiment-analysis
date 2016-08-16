@@ -19,8 +19,5 @@
   "bugs": {
     "url": "https://github.com/1337programming/twitter-sentiment-analysis/issues"
   },
-  "homepage": "https://github.com/1337programming/twitter-sentiment-analysis#readme",
-  "devDependencies": {
-    "raw-loader": "^0.5.1"
-  }
+  "homepage": "https://github.com/1337programming/twitter-sentiment-analysis#readme"
 }
