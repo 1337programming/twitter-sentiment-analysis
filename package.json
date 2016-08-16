@@ -21,8 +21,6 @@
   },
   "homepage": "https://github.com/1337programming/twitter-sentiment-analysis#readme",
   "devDependencies": {
-    "elasticsearch": "^11.0.1",
-    "sentiment": "^2.0.0",
-    "twitter": "^1.4.0"
+    "raw-loader": "^0.5.1"
   }
 }

@@ -13,11 +13,15 @@ module.exports = {
         test: /\.ts$/,
         loader: 'babel?presets[]=es2015!ts'
       },
-      {test: /\.css$/, loader: 'css-loader!postcss-loader'},
-      {test: /\.svg$/, loader: "url-loader?limit=100000" }
+      {
+        test: /\.html$/,
+        loader: 'raw-loader'
+      },
+      { test: /\.css$/, loader: 'css-loader!postcss-loader' },
+      { test: /\.svg$/, loader: "url-loader?limit=100000" }
     ]
   },
-  postcss: function() {
+  postcss: function () {
     return [autoprefixer];
   },
   output: {

@@ -8,18 +8,17 @@ import {ForAnyOrder} from '../../common/directives/forAnyOrder.directive';
 import 'rxjs/add/operator/bufferTime';
 let io = require('socket.io-client');
 
+let template  = require('./tmo-att-verizon.html');
+let displayConfig = {
+  numColumns: 3,
+  firstTerm: '',
+  secondTerm: 'AT&T',
+  thirdTerm: 'VERIZON'
+}
+
 @Component({
   selector: 'tweets',
-  template: `
-    <div class="muted-indicator" *ngIf="muted"></div>
-    <!--
-    <div class="hint click-hint" *ngIf="!clicked && !isDone()">click anywhere</div>
-    <div class="hint touch-hint" *ngIf="!clicked && !isDone()">touch anywhere</div>
-    -->
-    <tweet *forAnyOrder="let tweet of tweets | async"
-           [tweet]=tweet>
-    </tweet>
-  `,
+  template: template,
   styles: [require('./views/tweets.css').toString()],
   directives: [Chime, ForAnyOrder]
 })
@@ -40,6 +39,8 @@ export class Tweets {
   clicked = false;
   state: string;
   muted: boolean;
+
+  edgeBufferPct = 0.3;
   
   private socket: any;
   
@@ -52,12 +53,36 @@ export class Tweets {
       this.renderTweet(tweet);
     });
   }
+
+  getXCoordinate(numColumns: number, selectedColumn: number) {
+    let totalWidth = 1 / numColumns * window.innerWidth;
+    let startCoord = (selectedColumn - 1) * totalWidth + (totalWidth * this.edgeBufferPct); 
+    let endCoord = startCoord + totalWidth - (totalWidth * this.edgeBufferPct); 
+    return Random.getRandomIntInclusive(startCoord, endCoord);
+  }
+
+  getYCoordinate(numColumns: number, selectedRow: number) {
+    let totalHeight = 1 / numColumns * window.innerHeight;
+    let startCoord = (selectedRow - 1) * totalHeight + (totalHeight * this.edgeBufferPct); 
+    let endCoord = startCoord + totalHeight - (totalHeight * this.edgeBufferPct); 
+    return Random.getRandomIntInclusive(startCoord, endCoord);
+  }
   
   renderTweet(tweet) {
     let sentiment = this.samples.sentimentValidator(tweet.sentiment.score);
+
+    let numColumns = displayConfig.numColumns;
+    let selectedColumn = 1;
+    if (tweet.text.toUpperCase().indexOf('AT%26T') >= 0 || tweet.text.toUpperCase().indexOf('@ATT') >= 0) {
+      selectedColumn = 2;
+    } else if (tweet.text.toUpperCase().indexOf(displayConfig.thirdTerm) >= 0) {
+      selectedColumn = 3;
+    } 
+
     this.clicks.next({
-      x: Random.getRandomIntInclusive(window.innerWidth * 0.2, (window.innerWidth - (window.innerWidth * 0.2))),
-      y: Random.getRandomIntInclusive(window.innerWidth * 0.2, (window.innerHeight - (window.innerHeight * 0.2))),
+      // x: Random.getRandomIntInclusive(window.innerWidth * 0.05, (window.innerWidth * 0.45)),
+      x: this.getXCoordinate(numColumns, selectedColumn),
+      y: this.getYCoordinate(1,1),
       sentiment: sentiment,
       text: tweet.text,
       topic: tweet.user.screen_name
