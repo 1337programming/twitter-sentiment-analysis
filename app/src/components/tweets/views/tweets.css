@@ -33,3 +33,35 @@
     .touch-hint { display: block; }
     .click-hint { display: none; }
 }
+
+.topic-label {
+    margin: auto;
+    margin-top: 125%;
+    font-size: 1.3em;
+}
+
+.tweetpanel {
+    float: left;
+    height: 100%;
+    background-color: black;
+    text-align:center;
+    color: white;
+    font-style: oblique;
+    font-family: fantasy;
+}
+
+.magenta {
+    background-color: #e20074; 
+}
+
+.att-orange {
+    background-color: #ef6f00; 
+}
+
+.metro {
+    background-color: #262281;
+}
+
+.verizon {
+    background-color: #cd040b;
+}

@@ -8,21 +8,17 @@ import {ForAnyOrder} from '../../common/directives/forAnyOrder.directive';
 import 'rxjs/add/operator/bufferTime';
 let io = require('socket.io-client');
 
+let template  = require('./tmo-att-verizon.html');
+let displayConfig = {
+  numColumns: 3,
+  firstTerm: '',
+  secondTerm: 'AT&T',
+  thirdTerm: 'VERIZON'
+}
+
 @Component({
   selector: 'tweets',
-  template: `
-    <div class="muted-indicator" *ngIf="muted"></div>
-    <!--
-    <div class="hint click-hint" *ngIf="!clicked && !isDone()">click anywhere</div>
-    <div class="hint touch-hint" *ngIf="!clicked && !isDone()">touch anywhere</div>
-    -->
-    <tweet *forAnyOrder="let tweet of tweets | async"
-           [tweet]=tweet>
-    </tweet>
-
-    <div id="leftside" style="width:50%; height: 100%; background-color: #e20074; float:left;"></div>
-    <div id="rightside" style="width:50%; height: 100%; background-color: #ef6f00; float:right;"></div>
-  `,
+  template: template,
   styles: [require('./views/tweets.css').toString()],
   directives: [Chime, ForAnyOrder]
 })
@@ -75,11 +71,13 @@ export class Tweets {
   renderTweet(tweet) {
     let sentiment = this.samples.sentimentValidator(tweet.sentiment.score);
 
-    let numColumns = 2;
+    let numColumns = displayConfig.numColumns;
     let selectedColumn = 1;
-    if (tweet.text.toUpperCase().indexOf('ATT') >= 0 || tweet.text.toUpperCase().indexOf('AT&T') >= 0) {
+    if (tweet.text.toUpperCase().indexOf('AT%26T') >= 0 || tweet.text.toUpperCase().indexOf('@ATT') >= 0) {
       selectedColumn = 2;
-    }
+    } else if (tweet.text.toUpperCase().indexOf(displayConfig.thirdTerm) >= 0) {
+      selectedColumn = 3;
+    } 
 
     this.clicks.next({
       // x: Random.getRandomIntInclusive(window.innerWidth * 0.05, (window.innerWidth * 0.45)),

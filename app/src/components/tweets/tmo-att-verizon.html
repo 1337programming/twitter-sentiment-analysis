@@ -1,0 +1,18 @@
+<div class="muted-indicator" *ngIf="muted"></div>
+<!--
+   <div class="hint click-hint" *ngIf="!clicked && !isDone()">click anywhere</div>
+<div class="hint touch-hint" *ngIf="!clicked && !isDone()">touch anywhere</div>
+-->
+
+<tweet *forAnyOrder="let tweet of tweets | async" [tweet]=tweet>
+</tweet>
+
+<div style="width:33%;" class="tweetpanel magenta">
+    <div class="topic-label">T-Mobile</div>
+</div>
+<div style="width:33%;" class="tweetpanel att-orange">
+    <div class="topic-label">AT&T</div>
+</div>
+<div style="width:33%;" class="tweetpanel verizon">
+    <div class="topic-label">Verizon</div>
+</div>
