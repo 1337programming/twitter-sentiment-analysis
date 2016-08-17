@@ -40,7 +40,7 @@ export class Tweets {
   state: string;
   muted: boolean;
 
-  edgeBufferPct = 0.3;
+  edgeBufferPct = 0.6;
   
   private socket: any;
   
